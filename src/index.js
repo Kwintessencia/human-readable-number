@@ -2,7 +2,7 @@ module.exports = function toReadable (number) {
     number = number.toString();
     let unit = ['zero','one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen',
   'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-    let dozens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy','eighty', 'ninety'];
+    let dozens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy','eighty', 'ninety'];
 let findDozens= (number) => {
    let str= '';
    if (number.length < 2){
@@ -12,9 +12,9 @@ let findDozens= (number) => {
    } else if (number.length == 2 && number[0] == 1){
       str = str + unit[number];
    } else if (number.length == 2 && number[1] == 0){
-      str = str + dozens[number[0]-2];
+      str = str + dozens[number[0]];
    } else if (number.length == 2 && number[1] > 0){
-      str = str + `${dozens[number[0]-2]} ${unit[number.charAt(1)]}`;
+      str = str + `${dozens[number[0]]} ${unit[number.charAt(1)]}`;
    }
     return str;
 
